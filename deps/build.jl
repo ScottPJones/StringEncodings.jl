@@ -13,11 +13,6 @@ deps = [
     provides(WinRPM.RPM, "win_iconv", libiconv, os = :Windows)
 end
 
-@osx_only begin
-    using Homebrew
-    provides(Homebrew.HB, "libiconv", libiconv, os = :Darwin)
-end
-
 provides(Sources, URI("http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz"), libiconv)
 
 provides(BuildProcess, Autotools(libtarget = "lib/libiconv.la",
